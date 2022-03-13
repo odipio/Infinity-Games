@@ -5,21 +5,65 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Infinity Games</title>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            lir {
+                float: right;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+        </style>
     </head>
     <body>
-        <h1 style="font-family: monospace">Request A Game
+        <nav>
+            <ul>
+                <li><a href="homePage.html">Home</a></li>
+                <li><a href="request.html">Request a Game</a></li>
+                <lir>
+                    <input type="text" placeholder="Search">
+                    <a href="gamePage.html"><button style="margin-right:25px; margin-top: 13px;" type="button"><img src="https://static.thenounproject.com/png/424965-200.png" width="10" height="10"></button></a>
+                </lir>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <h1 style="font-family: monospace">
+            Request A Game
         </h1>
 
-        <div style="font-family: monospace">Title: <input type="text"/>
+        <div style="font-family: monospace">
+            Title: <input type="text" />
         </div><br>
 
-        <div style="font-family: monospace">Publisher: <input type="text"/>
+        <div style="font-family: monospace">
+            Publisher: <input type="text" />
         </div><br>
 
-        <div style="font-family: monospace">Release Year: <input type="text"/>
+        <div style="font-family: monospace">
+            Release Year: <input type="text" />
         </div><br>
 
-    <button type="button">Submit</button>
-</body>
+        <button type="button">Submit</button>
+    </body>
 </html>
 </html>
