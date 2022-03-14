@@ -23,3 +23,8 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+.logoImg{
+  width: 12px;
+  height: 2px;
+}
