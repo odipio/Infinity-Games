@@ -35,39 +35,34 @@
             }
     </style>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><img src="images/logo2.png" width="75" height="50"></li>
-            <li><a href="homePage.html">Home</a></li>
-            <li><a href="request.html">Request a Game</a></li>
-            <lir>
-                <input type="text" placeholder="Search">
-                <a href="gamePage.html"><button style="margin-right:25px; margin-top: 13px;" type="button"><img src="https://static.thenounproject.com/png/424965-200.png" width="10" height="10"></button></a>
-            </lir>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </nav>
-    <div style="position:relative;
-                right:-60px;
-                float:right">
-    </div>
-    <h1 style="font-family: monospace">
-        Request A Game
-    </h1>
 
-    <div style="font-family: monospace">
-        Title: <input type="text" />
-    </div><br>
+    <body>
+        <nav>
+            <ul>
+                <li><img src="images/logo2.png" width="75" height="50"></li>
+                <li><a href="homePage.html">Home</a></li>
+                <li><a href="request.html">Request a Game</a></li>
+                <lir>
+                    <input type="text" placeholder="Search">
+                    <a href="gamePage.html"><button style="margin-right:25px; margin-top: 13px;" type="button"><img src="https://static.thenounproject.com/png/424965-200.png" width="10" height="10"></button></a>
+                </lir>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-    <div style="font-family: monospace">
-        Publisher: <input type="text" />
-    </div><br>
+        <h1 style="font-family: monospace">
+            Request A Game
+        </h1>
 
-    <div style="font-family: monospace">
-        Release Year: <input type="text" />
-    </div><br>
+        <form style="font-family: monospace">
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="publisher">Publisher: </label>
+            <input type="text" id="publisher" name="publisher"><br><br>
+            <label for="year">Release Year: </label>
+            <input type="text" id="year" name="year"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
 
-    <button type="button">Submit</button>
-</body>
 </html>
