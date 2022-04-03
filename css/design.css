@@ -28,3 +28,10 @@ li a:hover {
   width: 12px;
   height: 2px;
 }
+
+table, th, td {
+  width: 30%;
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
