@@ -10,7 +10,9 @@
   <div class="header">
   	<h2>Register</h2>
   </div>
-	
+	<!--Register form, posts the user register information to 
+	MySQL query and signs the user up if the fields are filled
+	in correctly-->	
   <form method="post" action="register.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
@@ -32,6 +34,7 @@
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
+	   <!--If already a member, redirect to login page-->
   	<p>
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
