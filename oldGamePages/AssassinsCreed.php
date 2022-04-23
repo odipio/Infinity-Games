@@ -1,0 +1,79 @@
+<?php include('server.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Infinity Games | Assassin's Creed
+    </title>
+    <link rel="stylesheet" href="css/design.css">
+    <style>
+        body { background-color: #bababa }
+    </style>
+</head>
+    <body style="font-family:monospace">
+        
+        <!-- Navbar -->
+        <?php if (isset($_SESSION["username"])): ?>
+            <nav><script src="loggedNav.js"></script></nav>
+        <?php else: ?>
+            <nav><script src="nav.js"></script></nav>
+        <?php endif ?>
+
+        <div style="position:relative; 
+                    top: 17px;
+                    float:left">
+            <img src="images/ac.png" alt="Assassin's Creed"
+                width="40" height="35" />
+        </div>
+
+        <div>
+            <h1> |Assassin's Creed</h1>
+        </div>
+
+        <p>
+          Assassin's Creed is an action-adventure video game that takes place primarily during the Third Crusade in the Holy Land in 1191.
+          The player character is a modern-day man named Desmond Miles who, through a machine called the "Animus", relives the genetic memories of his ancestor, Altaïr Ibn-La'Ahad.
+          Gameplay focuses on using Altaïr's combat, stealth, and parkour abilities to defeat enemies and explore the environment.
+        </p><br>
+
+        <p>
+            <b>Trailer</b><br>
+        </p>
+
+        <iframe width="300" height="167"
+                src="https://www.youtube.com/embed/RjQ6ZtyXoA0"
+                title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe><br><br>
+        
+        <table>
+                <tr>
+                    <td><b>Developer(s)</b></td>
+                    <td><b>&nbsp;&nbsp;&nbsp;&nbsp;Publisher(s)</b></td>
+                    <td><b>&nbsp;&nbsp;&nbsp;&nbsp;Release Year</b></td>
+                </tr>
+                <tr>
+                    <td>Ubisoft Montreal</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Ubisoft</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;2007</td>
+                </tr>
+        </table>
+        <br><br>
+
+        <p>
+            <b>Platforms</b><br>
+            PlayStation 3, Xbox 360, Microsoft Windows
+        </p>
+        <br><br>
+
+        <p>
+            <b>Reviews</b><br>
+            <a href="https://www.ign.com/articles/2007/11/13/assassins-creed-review" target="_blank">
+                <img src="images/ign.png" alt="IGN" width="90" height="45"/>
+            </a>
+            <br><b style="font-size:20px">7.5/10</b>
+        </p>
+    </body>
+</html>
