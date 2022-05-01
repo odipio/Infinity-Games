@@ -1,27 +1,26 @@
 <?php
 session_start();
 
-// initializing variables
+//initializing variables
 $username = "";
 $email    = "";
 $errors = array(); 
 
-// connect to the database
-
-//$db = mysqli_connect('infinity-games-scsdc-server.mysql.database.azure.com', 'jrtemnvxdx', 'OXTSC6KX3D575567$', 'project');
+//initialize database connection
 $db = mysqli_init(); 
 mysqli_ssl_set($db, NULL,NULL, "certificates/DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
 mysqli_real_connect($db, "infinity-games-scsdc-server.mysql.database.azure.com", "jrtemnvxdx", "OXTSC6KX3D575567$", "project", 3306, MYSQLI_CLIENT_SSL);
-// REGISTER USER
+
+//if the user submits the register request, read the fields and add to the database
 if (isset($_POST['reg_user'])) {
-  // receive all input values from the form
+  //receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
+  //form validation: ensure that the form is correctly filled ...
+  //by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -29,25 +28,25 @@ if (isset($_POST['reg_user'])) {
 	array_push($errors, "The two passwords do not match");
   }
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
+  //first check the database to make sure 
+  //a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
-  if ($user) { // if user exists
+  if ($user) { //if user exists
     if ($user['username'] === $username) {
       array_push($errors, "Username already exists");
     }
 
-    if ($user['email'] === $email) {
+    if ($user['email'] === $email) { //if email already in use
       array_push($errors, "email already exists");
     }
   }
 
-  // Finally, register user if there are no errors in the form
+  //register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = md5($password_1);//encrypt the password before saving in the database
+  	$password = md5($password_1); //encrypt the password before saving in the database
 
   	$query = "INSERT INTO users (username, email, password) 
   			  VALUES('$username', '$email', '$password')";
@@ -58,24 +57,29 @@ if (isset($_POST['reg_user'])) {
   }
 }
 
+//if a user clicks the logout button, end their session
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['username']);
   header('location: index.php');
 }
 
-// LOGIN USER
+//if a user submits the login form, read the fields and check info with database
 if (isset($_POST['login_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
+  //if the username field is empty
   if (empty($username)) {
   	array_push($errors, "Username is required");
   }
+  
+  //if the password field is empty
   if (empty($password)) {
   	array_push($errors, "Password is required");
   }
 
+  //if no errors, login the user
   if (count($errors) == 0) {
   	$password = md5($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
@@ -89,7 +93,8 @@ if (isset($_POST['login_user'])) {
   	}
   }
 }
-// initializing variables
+
+//initializing variables
 $name = "";
 $developer = "";
 $publisher = "";
@@ -97,9 +102,9 @@ $releaseDate = "";
 $platforms = "";
 $multiplayer = "";
 
-// REGISTER GAME
+//if a user submits a game request, enter it into the requests table in the database
 if (isset($_POST['req_game'])) {
-  // receive all input values from the form
+  //receive all input values from the form
   $name = mysqli_real_escape_string($db, $_POST['name']);
   $developer = mysqli_real_escape_string($db, $_POST['developer']);
   $publisher = mysqli_real_escape_string($db, $_POST['publisher']);
@@ -107,7 +112,7 @@ if (isset($_POST['req_game'])) {
   $platforms = mysqli_real_escape_string($db, $_POST['platforms']);
   $multiplayer = mysqli_real_escape_string($db, $_POST['multiplayer']);
 
-  // form validation: ensure that the form is correctly filled
+  //form validation: ensure that the form is correctly filled
   if (empty($name)) { array_push($errors, "Title is required"); }
   if (empty($developer)) { array_push($errors, "Developer is required"); }
   if (empty($publisher)) { array_push($errors, "Publisher is required"); }
@@ -121,8 +126,9 @@ if (isset($_POST['req_game'])) {
   	header('location: index.php');
 }
 
+//if an admin accept the request for a game, enter it into the games table in the database
 if (isset($_POST['add_game'])) {
-  // receive all input values from the form
+  //receive all input values from the form
   $name = mysqli_real_escape_string($db, $_POST['name']);
   $developer = mysqli_real_escape_string($db, $_POST['developer']);
   $publisher = mysqli_real_escape_string($db, $_POST['publisher']);
@@ -138,7 +144,7 @@ if (isset($_POST['add_game'])) {
   $ignLink = mysqli_real_escape_string($db, $_POST['ignLink']);
   $color = mysqli_real_escape_string($db, $_POST['color']);
 
-  // form validation: ensure that the form is correctly filled
+  //form validation: ensure that the form is correctly filled
   if (empty($name)) { array_push($errors, "Title is required"); }
   if (empty($developer)) { array_push($errors, "Developer is required"); }
   if (empty($publisher)) { array_push($errors, "Publisher is required"); }
