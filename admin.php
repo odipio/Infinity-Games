@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/design.css">
-    <title>Infinity Games | Admin</title>
+    <style>
+        body { background-color: #82c8d1 }
+    </style>
+    <title>Infinity Games | Accept</title>
 </head>    
 <body style="font-family:monospace">  
     <!-- Navbar -->
@@ -19,14 +22,9 @@
         $sql = "SELECT * FROM requests ORDER BY name";
         $result = mysqli_query($db, $sql);
         $row = mysqli_fetch_assoc($result);
-        echo $row['name'];
-        echo $row['developer'];
-        echo $row['publisher'];
-        echo $row['releaseDate'];
-        echo $row['platforms'];
-        echo $row['multiplayer'];
     ?> 
     <form method="post" style="font-family: monospace">
+            <br>
             <label for="title">Title: </label>
             <input type="text" id="title" name="name"><br><br>
             <label for="developer">Developer: </label>
@@ -55,6 +53,8 @@
             <input type="text" id="ignLink" name="ignLink"><br><br>
             <label for="color">Background color (hex code): </label>
             <input type="text" id="color" name="color"><br><br>
-            <button type="submit" name="add_game">Submit request</button>
+            <label for="social">Link to developer Twitter: </label>
+            <input type="text" id="social" name="social"><br><br>
+            <button type="submit" name="add_game">Submit game</button>
     </form>
 </body>

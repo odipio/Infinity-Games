@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/design.css">
-    <title>Infinity Games | Admin</title>
+    <style>
+        body { background-color: #82c8d1 }
+    </style>
+    <title>Infinity Games | Deny</title>
 </head>    
 <body style="font-family:monospace">  
     <!-- Navbar -->
