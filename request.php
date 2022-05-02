@@ -67,7 +67,7 @@
                                <td>".$row['publisher']."</td>
                                <td>".$row['releaseDate']."</td>
                                <td>".$row['multiplayer']."</td>
-                               <td><form action='admin.php'><input type='submit' value='Accept'/></form><form action='admin.php'><input type='submit' value='Deny'/></form></td>";
+                               <td><form action='admin.php'><input type='submit' value='Accept'/></form><form action='adminDeny.php'><input type='submit' value='Deny'/></form></td>";
                         }
                     }
                 ?>
