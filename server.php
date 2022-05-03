@@ -121,11 +121,6 @@ if (isset($_POST['req_game'])) {
   	header('location: index.php');
 }
 
-if (isset($_POST['deny_game'])) {
-  $name = mysqli_real_escape_string($db, $_POST['name']);
-  $query3 = "DELETE FROM requests WHERE name = '$name'";
-}
-
 if (isset($_POST['add_game'])) {
   // receive all input values from the form
   $name = mysqli_real_escape_string($db, $_POST['name']);
