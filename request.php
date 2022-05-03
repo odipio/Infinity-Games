@@ -1,3 +1,4 @@
+<!-- Connection to the database for the necessary information -->
 <?php include 'server.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,8 @@
     <title>Infinity Games | Request</title>
 </head>
 
+    <!-- The styling of the page as well as the php if statement that shows the appropriate
+         navbar for a logged in or logged out user -->
     <body style="font-family:monospace">
     <?php if (isset($_SESSION["username"])): ?>
         <nav><script src="js/loggedNav.js"></script></nav>
@@ -19,6 +22,8 @@
             Request A Game
         </h1>
 
+        <!-- The form request that takes in the title, developer, publisher, release year, platforms,
+             and multiplayer capabilities by the user -->
         <form method="post" style="font-family: monospace">
             <label for="title">Title: </label>
             <input type="text" id="title" name="name"><br><br>
@@ -34,6 +39,8 @@
             <input type="text" id="multiplayer" name="multiplayer"><br><br>
             <button type="submit" name="req_game">Submit request</button>
         </form>
+
+        <!--  -->
         <?php if (isset($_SESSION["username"])): ?>
             <?php
                 $user = $_SESSION['username'];
