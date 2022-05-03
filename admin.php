@@ -53,7 +53,7 @@
             <input type="text" id="logo" name="logo"><br><br>
             <label for="width">Logo width (px): </label>
             <input type="text" id="width" name="width"><br><br>
-            <label for="height">Logo height: </label>
+            <label for="height">Logo height (px): </label>
             <input type="text" id="height" name="height"><br><br>
 
             <!-- Trailer --> 
@@ -61,9 +61,9 @@
             <input type="text" id="trailer" name="trailer"><br><br>
 
             <!-- Reviews information -->
-            <label for="ignLink">Link to IGN page: </label>
+            <label for="ignLink">Link to IGN review page: </label>
             <input type="text" id="ignLink" name="ignLink"><br><br>
-            <label for="ign">IGN rating: </label>
+            <label for="ign">IGN rating (x/10): </label>
             <input type="text" id="ign" name="ign"><br><br>
             
             <!-- Developer Twitter -->
