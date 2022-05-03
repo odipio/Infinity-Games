@@ -1,3 +1,4 @@
+<!-- Connection to the database so that the information can be stored -->
 <?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,10 @@
 	<title>Infinity Games | Register</title>  
 </head>
 <body>
+	<!-- This php if statement checks if a user is logged in or logged out
+		 and displays a different navbar that has the appropriate functions
+		 for the correct type of user 
+	-->
 <?php if (isset($_SESSION["username"])): ?>
       <nav><script src="js/loggedNav.js"></script></nav>
     <?php else: ?>
@@ -18,6 +23,9 @@
   	<h2>Register</h2>
   </div>
 	
+  <!-- This form takes in a username, email, and password in order to create a new account to be stored
+	   in the database 
+	-->
   <form method="post" action="register.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
@@ -39,6 +47,9 @@
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
+	  <!-- If a user already has an account, they will be able to click sign in in order to perform
+		   that function on the website 
+	  -->
   	<p>
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
