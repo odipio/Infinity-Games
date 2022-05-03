@@ -11,21 +11,23 @@
 
   <body style="font-family: monospace">
 
+    <!-- Display the navbar with logout button if a user is logged in, display navbar with login button if no user is logged in -->
     <?php if (isset($_SESSION["username"])): ?>
       <nav><script src="js/loggedNav.js"></script></nav>
     <?php else: ?>
       <nav><script src="js/nav.js"></script></nav>
     <?php endif ?>
     
-    
-
+    <!-- Website title -->
     <h1 style="font-family: monospace">Infinity Games</h1>
 
+    <!-- Website description -->
     <p style="font-family: monospace">
       Welcome to Infinity Games! Here is where you can find information about
       any game out there, watch trailers, and much more.
     </p>
 
+    <!-- Request a game information -->
     <p style="font-family: monospace">
       If a game has been released and is not found in the search results, please
       feel free to submit a request using the 'Request A Game' button above.
@@ -34,6 +36,8 @@
     <br />
 
     <h2>Gaming News</h2>
+
+    <!-- Display various news articles in gallery form -->
     <div class="gallery">
         <a target="_blank" href="https://www.minecraft.net/en-us/article/minecraft-1-18-pre-release-2">
           <img src="images/mc118.jpg" alt="Minecraft News" width="500" height="300" />

@@ -12,12 +12,15 @@
     <title>Infinity Games | Deny</title>
 </head>    
 <body style="font-family:monospace">  
-    <!-- Navbar -->
+
+    <!-- Display the navbar with logout button if a user is logged in, display navbar with login button if no user is logged in -->
     <?php if (isset($_SESSION["username"])): ?>
         <nav><script src="js/loggedNav.js"></script></nav>
     <?php else: ?>
         <nav><script src="js/nav.js"></script></nav>
     <?php endif ?>
+
+    <!-- Form an admin can use to specify which request to deny -->
     <form method="post" style="font-family: monospace">
             <br>
             <label for="title">Title: </label>
