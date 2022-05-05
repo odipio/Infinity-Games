@@ -40,7 +40,10 @@
             <button type="submit" name="req_game">Submit request</button>
         </form>
 
-        <!--  -->
+        <!-- This php if statement checks if the user who is logged in is an admin,
+             if they are an admin, then they will have access to view the table below.
+             if they are not an admin, this table will not show up for them. 
+        -->
         <?php if (isset($_SESSION["username"])): ?>
             <?php
                 $user = $_SESSION['username'];
@@ -51,6 +54,9 @@
             ?>
             <h1>Pending Requests</h1>
             <div class="table-wrapper">
+                <!-- This is the table that shows the necessary information regarding the request form sent
+                     by the user 
+                -->
             <table class="fl-table">
             <thead>
                 <th>Title</th>
@@ -61,6 +67,9 @@
                 <th>Accept/Deny Request</th>
             </thead>
             <tbody>
+                <!-- This block of code shows the pending requests in the form of a table, with their
+                     own unique information regarding each request sent 
+                -->
                 <?php  
                     $sql = "SELECT * FROM requests ORDER BY name";
                     $result = mysqli_query($db, $sql);
