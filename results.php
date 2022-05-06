@@ -1,3 +1,4 @@
+<!-- Connects to the database -->
 <?php include 'server.php'; ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -8,6 +9,8 @@
     <link rel="stylesheet" href="css/results.css" />
     <title>Infinity Games | Browse</title>
 </head>
+    
+<!-- Checks if the user is logged-in and decides what navbar to use -->
 <body style = "font-family:monospace">
     <?php if (isset($_SESSION["username"])): ?>
         <nav><script src="js/loggedNav.js"></script></nav>
@@ -16,10 +19,11 @@
     <?php endif ?>
 
 <h1 style="font-family: monospace">Results</h1>
-
+<!-- Begin building a table that will hold game information -->
 <div class="table-wrapper">
     <table class="fl-table">
         <thead>
+            <!-- Column names -->
             <th>Title</th>
             <th>Developer(s)</th>
             <th>Publisher(s)</th>
@@ -27,8 +31,8 @@
             <th>Online Multiplayer?</th>
         </thead>
         <tbody>
-        
-        <?php
+        <!-- Searches database table for results that match the input and displays any results. If there is no input all games are displayed. -->
+        <?php 
             if(isset($_POST['submit-search'])) {
                 $search = mysqli_real_escape_string($db, $_POST['search']);
                 $sql = "SELECT * FROM games WHERE name LIKE '%$search%' OR
