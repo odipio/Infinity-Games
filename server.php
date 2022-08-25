@@ -11,7 +11,7 @@ $errors = array();
 //$db = mysqli_connect('infinity-games-scsdc-server.mysql.database.azure.com', 'jrtemnvxdx', 'OXTSC6KX3D575567$', 'project');
 $db = mysqli_init(); 
 mysqli_ssl_set($db, NULL,NULL, "certificates/DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
-mysqli_real_connect($db, "infinity-games-scsdc-server.mysql.database.azure.com", "jrtemnvxdx", "OXTSC6KX3D575567$", "project", 3306, MYSQLI_CLIENT_SSL);
+mysqli_real_connect($db, "infinity-games-scsdc-server.mysql.database.azure.com", "PASSWORD", "PASSWORD", "project", 3306, MYSQLI_CLIENT_SSL);
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
